@@ -1,5 +1,5 @@
 <?php
-$host = 'localhost';
+$host = 'localhost:3307';
 $db = 'mental_health_app';
 $user = 'root';
 $pass = '';
