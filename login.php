@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $row['password'])) {
             $_SESSION['username'] = $username;
             $_SESSION['tipo'] = $row['tipo'];
-            
+            #linea que decide el tipo de dashboard a mostrar segun el tipo
             if ($row['tipo'] == 'usuario') {
                 header("Location: index.html");
             } else if ($row['tipo'] == 'especialista') {
