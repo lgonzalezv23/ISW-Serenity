@@ -9,14 +9,18 @@ if (!isset($_SESSION['username'])) {
 include 'config.php';
 
 $username = $_SESSION['username'];
-$sql = "SELECT nombre, apellidos, fecha_nacimiento, username FROM users WHERE username = '$username'";
-$result = $conn->query($sql);
+$sql = "SELECT nombre, apellidos, fecha_nacimiento, username, tipo FROM users WHERE username = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $nombre = $row['nombre'];
     $apellidos = $row['apellidos'];
     $fecha_nacimiento = $row['fecha_nacimiento'];
+    $tipo = $row['tipo'];
 } else {
     echo "No user found with that username";
     exit();
@@ -221,6 +225,15 @@ $conn->close();
             }
         }
     </style>
+    <script>
+        function redirectHome() {
+            <?php if ($tipo == 'usuario') { ?>
+                window.location.href = 'index.html';
+            <?php } else if ($tipo == 'especialista') { ?>
+                window.location.href = 'esp_dashboard.html';
+            <?php } ?>
+        }
+    </script>
 </head>
 <body>
     <div class="content">
@@ -229,7 +242,7 @@ $conn->close();
                 <img src="https://randomuser.me/api/portraits/lego/6.jpg" alt="Profile Picture">
                 <div class="profileinfo">
                     <h1><?php echo htmlspecialchars($nombre . ' ' . $apellidos); ?></h1>
-                    <h3><?php echo htmlspecialchars($username); ?></h3>
+                    <h3><?php echo htmlspecialchars($tipo); ?></h3>
                     <p class="bio">
                         Fecha de Nacimiento: <?php echo htmlspecialchars($fecha_nacimiento); ?>
                     </p>
@@ -247,7 +260,7 @@ $conn->close();
         </div>
         <div class="buttons">
             <a href="logout.php" class="btn">Logout</a>
-            <a href="index.html" class="btn-home">Home</a>
+            <div class="btn-home" onclick="redirectHome()">Home</div>
             <a href="appointments.php" class="btn-appointments">Mis Citas</a>
         </div>
     </div>
