@@ -6,14 +6,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM users WHERE username = '$username'";
-    $result = $conn->query($sql);
+    $sql = "SELECT * FROM users WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row['password'])) {
             $_SESSION['username'] = $username;
-            header("Location: index.html");
+            $_SESSION['tipo'] = $row['tipo'];
+            
+            if ($row['tipo'] == 'usuario') {
+                header("Location: index.html");
+            } else if ($row['tipo'] == 'especialista') {
+                header("Location: esp_dashboard.html");
+            }
             exit();
         } else {
             echo "Invalid password";
@@ -22,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "No user found with that username";
     }
 
+    $stmt->close();
     $conn->close();
 }
 ?>
@@ -42,18 +52,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-align: center;
             margin: 20px 0;
         }
-        
+
         p {
             font-size: 12px;
             text-decoration: none;
             color: #ffffff;
         }
-        
+
         h1 {
             font-size: 1.5em;
             color: #525252;
         }
-        
+
         .box {
             background: white;
             width: 300px;
@@ -62,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             padding: 0 0 70px 0;
             border: #2980b9 4px solid;
         }
-        
+
         .email, .password {
             background: #ecf0f1;
             border: #ccc 1px solid;
@@ -74,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-size: 1em;
             border-radius: 4px;
         }
-        
+
         .btn {
             background: #2ecc71;
             width: 125px;
@@ -91,11 +101,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-size: 0.8em;
             cursor: pointer;
         }
-        
+
         .btn:hover {
             background: #2CC06B;
         }
-        
+
         #btn2 {
             float: left;
             background: #3498db;
@@ -112,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-size: 0.8em;
             cursor: pointer;
         }
-        
+
         #btn2:hover {
             background: #3594D2;
         }
@@ -133,7 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-size: 0.8em;
             cursor: pointer;
         }
-        
+
         #btn3:hover {
             background: #d62c1a;
         }
@@ -151,7 +161,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div> <!-- End Box -->
     </form>
     <p>Forgot your password? <u style="color:#f1c40f;">Click Here!</u></p>
-    
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
     <script>
         function field_focus(field, default_text) {
