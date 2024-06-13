@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form | CodingLab</title>
+    <title>Login Form</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
@@ -171,6 +171,7 @@
                     <input type="submit" value="Login">
                 </div>
                 <div class="signup-link">No tienes cuenta? <a href="signup.php">Signup now</a></div>
+                <div class="signup-link">Regresar a <a href="index2.html">Home Page</a></div>
             </form>
         </div>
     </div>

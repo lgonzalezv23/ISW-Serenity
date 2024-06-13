@@ -1,125 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up Form</title>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
+    <title>Registration</title> 
     <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
         body {
-            font-family: 'Open Sans', sans-serif;
-            background: #3498db;
-            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #87CEFA;
+        }
+        .wrapper {
+            position: relative;
+            max-width: 430px;
+            width: 100%;
+            background: #fff;
+            padding: 34px;
+            border-radius: 6px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+        .wrapper h2 {
+            position: relative;
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+        }
+        .wrapper h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 28px;
+            border-radius: 12px;
+            background: #87CEFA;
+        }
+        .wrapper form {
+            margin-top: 30px;
+        }
+        .wrapper form .input-box {
+            height: 52px;
+            margin: 18px 0;
+            position: relative;
+        }
+        form .input-box input, form .input-box select {
+            height: 100%;
+            width: 100%;
+            outline: none;
+            padding: 0 15px;
+            font-size: 17px;
+            font-weight: 400;
+            color: #333;
+            border: 1.5px solid #C7BEBE;
+            border-bottom-width: 2.5px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        .input-box input:focus,
+        .input-box input:valid,
+        .input-box select:focus,
+        .input-box select:valid {
+            border-color: #87CEFA;
+        }
+        .input-box select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        form .policy {
+            display: flex;
+            align-items: center;
+        }
+        form h3 {
+            color: #707070;
+            font-size: 14px;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+        .input-box.button input {
+            color: #fff;
+            letter-spacing: 1px;
+            border: none;
+            background: #87CEFA;
+            cursor: pointer;
+        }
+        .input-box.button input:hover {
+            background: #6ba7cf;
+        }
+        form .text h3 {
+            color: #333;
             width: 100%;
             text-align: center;
-            margin: 20px 0;
         }
-
-        p {
-            font-size: 12px;
+        form .text h3 a {
+            color: #87CEFA;
             text-decoration: none;
-            color: #ffffff;
         }
-
-        h1 {
-            font-size: 1.5em;
-            color: #525252;
+        form .text h3 a:hover {
+            text-decoration: underline;
         }
-
-        .box {
-            background: white;
-            width: 300px;
-            border-radius: 6px;
-            margin: 0 auto;
-            padding: 0px 0px 70px 0px;
-            border: #2980b9 4px solid;
-        }
-
-        .input {
-            background: #ecf0f1;
-            border: #ccc 1px solid;
-            border-bottom: #ccc 2px solid;
-            padding: 8px;
-            width: 250px;
-            color: #AAAAAA;
-            margin-top: 10px;
-            font-size: 1em;
-            border-radius: 4px;
-        }
-
-        .btn {
-            background: #2ecc71;
-            width: 125px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            color: white;
-            border-radius: 4px;
-            border: #27ae60 1px solid;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            float: left;
-            margin-left: 16px;
-            font-weight: 800;
-            font-size: 0.8em;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: #2CC06B;
-        }
-
         #btn2 {
-            float: left;
-            background: #3498db;
-            width: 125px;
-            padding-top: 5px;
-            padding-bottom: 5px;
+            background: #87CEFA;
             color: white;
             border-radius: 4px;
-            border: #2980b9 1px solid;
+            border: none;
             margin-top: 20px;
             margin-bottom: 20px;
-            margin-left: 10px;
             font-weight: 800;
             font-size: 0.8em;
             cursor: pointer;
+            text-align: center;
+            padding: 10px;
+            display: block;
+            width: 100%;
         }
-
         #btn2:hover {
-            background: #3594D2;
-        }
-
-        .select {
-            background: #ecf0f1;
-            border: #ccc 1px solid;
-            border-bottom: #ccc 2px solid;
-            padding: 8px;
-            width: 266px;
-            color: #AAAAAA;
-            margin-top: 10px;
-            font-size: 1em;
-            border-radius: 4px;
+            background: #6ba7cf;
         }
     </style>
 </head>
 <body>
-    <form method="POST" action="register.php">
-        <div class="box">
-            <h1>Sign Up</h1>
-            <input type="text" name="nombre" placeholder="Nombre" class="input" required />
-            <input type="text" name="apellidos" placeholder="Apellidos" class="input" required />
-            <input type="date" name="fecha_nacimiento" class="input" required />
-            <input type="text" name="username" placeholder="Correo o Nombre de Usuario" class="input" required />
-            <input type="password" name="password" placeholder="Contraseña" class="input" required />
-            <input type="password" name="confirm_password" placeholder="Confirmar Contraseña" class="input" required />
-            <select name="tipo" class="select" required>
-                <option value="" disabled selected>Seleccionar tipo</option>
-                <option value="usuario">Usuario</option>
-                <option value="especialista">Especialista</option>
-            </select>
-            <input type="submit" value="Crear Cuenta" class="btn" />
-            <div id="btn2" onclick="window.location.href='index2.html'">Home</div> <!-- End Btn2 -->
-        </div> <!-- End Box -->
-    </form>
+    <div class="wrapper">
+        <h2>Registration</h2>
+        <form method="POST" action="register.php">
+            <div class="input-box">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+            </div>
+            <div class="input-box">
+                <input type="text" name="apellidos" placeholder="Apellidos" required>
+            </div>
+            <div class="input-box">
+                <input type="date" name="fecha_nacimiento" required>
+            </div>
+            <div class="input-box">
+                <input type="text" name="username" placeholder="Correo o Nombre de Usuario" required>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Contraseña" required>
+            </div>
+            <div class="input-box">
+                <input type="password" name="confirm_password" placeholder="Confirmar Contraseña" required>
+            </div>
+            <div class="input-box">
+                <select name="tipo" required>
+                    <option value="" disabled selected>Seleccionar tipo</option>
+                    <option value="usuario">Usuario</option>
+                    <option value="especialista">Especialista</option>
+                </select>
+            </div>
+            <div class="input-box button">
+                <input type="submit" value="Crear Cuenta">
+            </div>
+            <div class="text">
+                <h3>Already have an account? <a href="login.php">Login now</a></h3>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
