@@ -9,6 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
+    $tipo = $_POST['tipo'];
 
     if ($password != $confirm_password) {
         echo "Las contraseñas no coinciden";
@@ -17,9 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO users (nombre, apellidos, fecha_nacimiento, username, password) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO users (nombre, apellidos, fecha_nacimiento, username, password, tipo) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssss", $nombre, $apellidos, $fecha_nacimiento, $username, $hashed_password);
+    $stmt->bind_param("ssssss", $nombre, $apellidos, $fecha_nacimiento, $username, $hashed_password, $tipo);
 
     if ($stmt->execute()) {
         echo "<script>alert('Cuenta creada'); window.location.href='login.php';</script>";

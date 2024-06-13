@@ -136,7 +136,7 @@ $conn->close();
 
         .bio {
             padding: 10px 0px;
-            color: ##87CEFA;
+            color: #5A5A5A;
             line-height: 1.2;
         }
 
