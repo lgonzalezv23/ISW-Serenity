@@ -101,7 +101,7 @@ $conn->close();
         <p>Username: <?php echo htmlspecialchars($username); ?></p>
         <p>Fecha de Nacimiento: <?php echo htmlspecialchars($fecha_nacimiento); ?></p>
         <a href="logout.php" class="btn">Logout</a>
-        <a href="index2.html" class="btn-home">Home</a>
+        <a href="index.html" class="btn-home">Home</a>
     </div>
 </body>
 </html>
