@@ -146,10 +146,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" name="username" value="username" onFocus="field_focus(this, 'username');" onblur="field_blur(this, 'username');" class="email" />
             <input type="password" name="password" value="password" onFocus="field_focus(this, 'password');" onblur="field_blur(this, 'password');" class="password" />
             <div class="btn" onclick="submitForm()">Sign In</div> <!-- End Btn -->
-            <div id="btn2">Sign Up</div> <!-- End Btn2 -->
+            <div id="btn2" onclick="window.location.href='signup.php'">Sign Up</div> <!-- End Btn2 -->
             <div id="btn3" onclick="window.location.href='index2.html'">Home</div> <!-- End Btn3 -->
         </div> <!-- End Box -->
     </form>
+    <p>Forgot your password? <u style="color:#f1c40f;">Click Here!</u></p>
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
     <script>
