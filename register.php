@@ -22,9 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssss", $nombre, $apellidos, $fecha_nacimiento, $username, $hashed_password);
 
     if ($stmt->execute()) {
-        $_SESSION['username'] = $username;
-        header("Location: welcome.php");
-        exit();
+        echo "<script>alert('Cuenta creada'); window.location.href='login.php';</script>";
     } else {
         echo "Error: " . $stmt->error;
     }

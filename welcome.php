@@ -97,7 +97,7 @@ $conn->close();
 </head>
 <body>
     <div class="box">
-        <h1>Welcome, <?php echo htmlspecialchars($nombre . ' ' . $apellidos); ?></h1>
+        <p>Welcome, <?php echo htmlspecialchars($nombre . ' ' . $apellidos); ?><p>
         <p>Username: <?php echo htmlspecialchars($username); ?></p>
         <p>Fecha de Nacimiento: <?php echo htmlspecialchars($fecha_nacimiento); ?></p>
         <a href="logout.php" class="btn">Logout</a>

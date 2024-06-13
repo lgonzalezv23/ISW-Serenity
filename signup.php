@@ -100,7 +100,7 @@
             <input type="text" name="username" placeholder="Correo o Nombre de Usuario" class="input" required />
             <input type="password" name="password" placeholder="Contraseña" class="input" required />
             <input type="password" name="confirm_password" placeholder="Confirmar Contraseña" class="input" required />
-            <input type="submit" value="Sign Up" class="btn" />
+            <input type="submit" value="Crear Cuenta" class="btn" />
             <div id="btn2" onclick="window.location.href='index2.html'">Home</div> <!-- End Btn2 -->
         </div> <!-- End Box -->
     </form>
