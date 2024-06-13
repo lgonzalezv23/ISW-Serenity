@@ -1,194 +1,178 @@
-<?php
-session_start();
-include 'config.php';
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $sql = "SELECT * FROM users WHERE username = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        if (password_verify($password, $row['password'])) {
-            $_SESSION['username'] = $username;
-            $_SESSION['tipo'] = $row['tipo'];
-            #linea que decide el tipo de dashboard a mostrar segun el tipo
-            if ($row['tipo'] == 'usuario') {
-                header("Location: index.html");
-            } else if ($row['tipo'] == 'especialista') {
-                header("Location: esp_dashboard.html");
-            }
-            exit();
-        } else {
-            echo "Invalid password";
-        }
-    } else {
-        echo "No user found with that username";
-    }
-
-    $stmt->close();
-    $conn->close();
-}
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
+    <title>Login Form | CodingLab</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
         body {
-            font-family: 'Open Sans', sans-serif;
-            background: #3498db;
-            margin: 0 auto;
+            background: #87CEFA;
+            overflow: hidden;
+        }
+        ::selection {
+            background: rgba(135, 206, 250, 0.3);
+        }
+        .container {
+            max-width: 440px;
+            padding: 0 20px;
+            margin: 170px auto;
+        }
+        .wrapper {
             width: 100%;
-            text-align: center;
-            margin: 20px 0;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
         }
-
-        p {
-            font-size: 12px;
+        .wrapper .title {
+            height: 90px;
+            background: #87CEFA;
+            border-radius: 5px 5px 0 0;
+            color: #fff;
+            font-size: 30px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .wrapper form {
+            padding: 30px 25px 25px 25px;
+        }
+        .wrapper form .row {
+            height: 45px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .wrapper form .row input {
+            height: 100%;
+            width: 100%;
+            outline: none;
+            padding-left: 60px;
+            border-radius: 5px;
+            border: 1px solid lightgrey;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        form .row input:focus {
+            border-color: #87CEFA;
+            box-shadow: inset 0px 0px 2px 2px rgba(135, 206, 250, 0.25);
+        }
+        form .row input::placeholder {
+            color: #999;
+        }
+        .wrapper form .row i {
+            position: absolute;
+            width: 47px;
+            height: 100%;
+            color: #fff;
+            font-size: 18px;
+            background: #87CEFA;
+            border: 1px solid #87CEFA;
+            border-radius: 5px 0 0 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .wrapper form .pass {
+            margin: -8px 0 20px 0;
+        }
+        .wrapper form .pass a {
+            color: #87CEFA;
+            font-size: 17px;
             text-decoration: none;
-            color: #ffffff;
         }
-
-        h1 {
-            font-size: 1.5em;
-            color: #525252;
+        .wrapper form .pass a:hover {
+            text-decoration: underline;
         }
-
-        .box {
-            background: white;
-            width: 300px;
-            border-radius: 6px;
-            margin: 0 auto;
-            padding: 0 0 70px 0;
-            border: #2980b9 4px solid;
-        }
-
-        .email, .password {
-            background: #ecf0f1;
-            border: #ccc 1px solid;
-            border-bottom: #ccc 2px solid;
-            padding: 8px;
-            width: 250px;
-            color: #AAAAAA;
-            margin-top: 10px;
-            font-size: 1em;
-            border-radius: 4px;
-        }
-
-        .btn {
-            background: #2ecc71;
-            width: 125px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            color: white;
-            border-radius: 4px;
-            border: #27ae60 1px solid;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            float: left;
-            margin-left: 16px;
-            font-weight: 800;
-            font-size: 0.8em;
+        .wrapper form .button input {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 500;
+            padding-left: 0px;
+            background: #87CEFA;
+            border: 1px solid #87CEFA;
             cursor: pointer;
         }
-
-        .btn:hover {
-            background: #2CC06B;
+        form .button input:hover {
+            background: #87B0E0;
         }
-
-        #btn2 {
-            float: left;
-            background: #3498db;
-            width: 125px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            color: white;
-            border-radius: 4px;
-            border: #2980b9 1px solid;
+        .wrapper form .signup-link {
+            text-align: center;
             margin-top: 20px;
-            margin-bottom: 20px;
-            margin-left: 10px;
-            font-weight: 800;
-            font-size: 0.8em;
-            cursor: pointer;
+            font-size: 17px;
         }
-
-        #btn2:hover {
-            background: #3594D2;
+        .wrapper form .signup-link a {
+            color: #87CEFA;
+            text-decoration: none;
         }
-
-        #btn3 {
-            float: left;
-            background: #e74c3c;
-            width: 125px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            color: white;
-            border-radius: 4px;
-            border: #c0392b 1px solid;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            margin-left: 10px;
-            font-weight: 800;
-            font-size: 0.8em;
-            cursor: pointer;
-        }
-
-        #btn3:hover {
-            background: #d62c1a;
+        form .signup-link a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <form method="POST" action="login.php">
-        <div class="box">
-            <h1>Serenity</h1>
-            <input type="text" name="username" value="username" onFocus="field_focus(this, 'username');" onblur="field_blur(this, 'username');" class="email" />
-            <input type="password" name="password" value="password" onFocus="field_focus(this, 'password');" onblur="field_blur(this, 'password');" class="password" />
-            <div class="btn" onclick="submitForm()">Sign In</div> <!-- End Btn -->
-            <div id="btn2" onclick="window.location.href='signup.php'">Sign Up</div> <!-- End Btn2 -->
-            <div id="btn3" onclick="window.location.href='index2.html'">Home</div> <!-- End Btn3 -->
-        </div> <!-- End Box -->
-    </form>
-    <p>Forgot your password? <u style="color:#f1c40f;">Click Here!</u></p>
+    <?php
+    session_start();
+    include 'config.php';
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
-    <script>
-        function field_focus(field, default_text) {
-            if(field.value == default_text) {
-                field.value = '';
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        $sql = "SELECT * FROM users WHERE username = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            if (password_verify($password, $row['password'])) {
+                $_SESSION['username'] = $username;
+                $_SESSION['tipo'] = $row['tipo'];
+                if ($row['tipo'] == 'usuario') {
+                    header("Location: index.html");
+                } else if ($row['tipo'] == 'especialista') {
+                    header("Location: esp_dashboard.html");
+                }
+                exit();
+            } else {
+                echo "Invalid password";
             }
+        } else {
+            echo "No user found with that username";
         }
 
-        function field_blur(field, default_text) {
-            if(field.value == '') {
-                field.value = default_text;
-            }
-        }
-
-        // Fade in dashboard box
-        $(document).ready(function(){
-            $('.box').hide().fadeIn(1000);
-        });
-
-        // Stop click event
-        $('a').click(function(event){
-            event.preventDefault(); 
-        });
-
-        function submitForm() {
-            document.forms[0].submit();
-        }
-    </script>
+        $stmt->close();
+        $conn->close();
+    }
+    ?>
+    <div class="container">
+        <div class="wrapper">
+            <div class="title"><span>Iniciar Sesion</span></div>
+            <form method="POST" action="">
+                <div class="row">
+                    <i class="fas fa-user"></i>
+                    <input type="text" name="username" placeholder="Email or User" required>
+                </div>
+                <div class="row">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="pass"><a href="#">Olvidaste password?</a></div>
+                <div class="row button">
+                    <input type="submit" value="Login">
+                </div>
+                <div class="signup-link">No tienes cuenta? <a href="signup.php">Signup now</a></div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
