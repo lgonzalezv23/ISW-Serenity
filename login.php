@@ -171,7 +171,7 @@
                     <input type="submit" value="Login">
                 </div>
                 <div class="signup-link">No tienes cuenta? <a href="signup.php">Signup now</a></div>
-                <div class="signup-link">Regresar a <a href="index2.html">Home Page</a></div>
+                <div class="signup-link">Regresar a <a href="init_dashboard.html">Home Page</a></div>
             </form>
         </div>
     </div>
