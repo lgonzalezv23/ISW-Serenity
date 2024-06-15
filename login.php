@@ -1,3 +1,42 @@
+<?php
+session_start();
+include 'config.php';
+
+$error_message = '';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT * FROM users WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['username'] = $username;
+            $_SESSION['tipo'] = $row['tipo'];
+            if ($row['tipo'] == 'usuario') {
+                header("Location: user_dashboard.html");
+            } else if ($row['tipo'] == 'especialista') {
+                header("Location: esp_dashboard.html");
+            }
+            exit();
+        } else {
+            $error_message = "Invalid password";
+        }
+    } else {
+        $error_message = "No user found with that username";
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -30,6 +69,15 @@
             background: #fff;
             border-radius: 5px;
             box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .wrapper .title {
             height: 90px;
@@ -49,6 +97,10 @@
             height: 45px;
             margin-bottom: 15px;
             position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s forwards;
+            animation-delay: calc(0.1s * var(--i));
         }
         .wrapper form .row input {
             height: 100%;
@@ -107,6 +159,10 @@
             text-align: center;
             margin-top: 20px;
             font-size: 17px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s forwards;
+            animation-delay: calc(0.1s * var(--i));
         }
         .wrapper form .signup-link a {
             color: #87CEFA;
@@ -118,60 +174,29 @@
     </style>
 </head>
 <body>
-    <?php
-    session_start();
-    include 'config.php';
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        $sql = "SELECT * FROM users WHERE username = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            if (password_verify($password, $row['password'])) {
-                $_SESSION['username'] = $username;
-                $_SESSION['tipo'] = $row['tipo'];
-                if ($row['tipo'] == 'usuario') {
-                    header("Location: user_dashboard.html");
-                } else if ($row['tipo'] == 'especialista') {
-                    header("Location: esp_dashboard.html");
-                }
-                exit();
-            } else {
-                echo "Invalid password";
-            }
-        } else {
-            echo "No user found with that username";
-        }
-
-        $stmt->close();
-        $conn->close();
-    }
-    ?>
     <div class="container">
         <div class="wrapper">
             <div class="title"><span>Iniciar Sesion</span></div>
             <form method="POST" action="">
-                <div class="row">
+                <div class="row" style="--i: 1;">
                     <i class="fas fa-user"></i>
                     <input type="text" name="username" placeholder="Email or User" required>
                 </div>
-                <div class="row">
+                <div class="row" style="--i: 2;">
                     <i class="fas fa-lock"></i>
                     <input type="password" name="password" placeholder="Password" required>
                 </div>
-                <div class="pass"><a href="#">Olvidaste password?</a></div>
-                <div class="row button">
+                <div class="pass" style="--i: 3;"><a href="#">Olvidaste password?</a></div>
+                <div class="row button" style="--i: 4;">
                     <input type="submit" value="Login">
                 </div>
-                <div class="signup-link">No tienes cuenta? <a href="signup.php">Signup now</a></div>
-                <div class="signup-link">Regresar a <a href="init_dashboard.html">Home Page</a></div>
+                <?php
+                if (!empty($error_message)) {
+                    echo '<div class="signup-link" style="--i: 5; color: red;">' . $error_message . '</div>';
+                }
+                ?>
+                <div class="signup-link" style="--i: 6;">No tienes cuenta? <a href="signup.php">Signup now</a></div>
+                <div class="signup-link" style="--i: 7;">Regresar a <a href="init_dashboard.html">Home Page</a></div>
             </form>
         </div>
     </div>
