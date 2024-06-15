@@ -228,7 +228,7 @@ $conn->close();
     <script>
         function redirectHome() {
             <?php if ($tipo == 'usuario') { ?>
-                window.location.href = 'index.html';
+                window.location.href = 'user_dashboard.html';
             <?php } else if ($tipo == 'especialista') { ?>
                 window.location.href = 'esp_dashboard.html';
             <?php } ?>

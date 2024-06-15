@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serenity</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Dashboard Especialista - Serenity</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script src="script.js" defer></script>
+    <!-- Cargar Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <header>
+        <div class="logo">Serenity | Especialista</div>
         <nav>
             <ul>
                 <li class="dropdown">
-                    <a href="#" class="dropbtn">Mis citas</a>
+                    <a href="#" class="dropbtn">Mis Citas</a>
                     <ul class="dropdown-content">
-                        <li><a href="#">Citas Programadas</a></li>
-                        <li><a href="#">Mis Horarios</a></li>
+                        <li><a href="citas_programadas.html">Citas Programadas</a></li>
+                        <li><a href="mis_horarios.html">Mis Horarios</a></li>
                     </ul>
                 </li>
-               
                 <li class="dropdown">
-                    <a href="#" class="dropbtn">Usuario</a>
+                    <a href="#" class="dropbtn"><i class="fas fa-user"></i></a>
                     <ul class="dropdown-content">
-                        <li><a href="welcome.php">Perfil</a></li>
-                        <li><a href="logout.php">Cerrar Sesión</a></li>
+                        <li><a href="welcome.php"><i class="fas fa-user"></i> Perfil</a></li>
                     </ul>
                 </li>
             </ul>
@@ -30,8 +32,9 @@
     </header>
     <main>
         <div class="welcome-section">
-            <h1>Bienvenido Especialista</h1>
+            <h1>Bienvenido al Dashboard Especialista</h1>
             <img src="logo.jpg" alt="Serenity Logo" class="logo">
+            <p>Aquí puedes gestionar tu perfil y tus citas.</p>
         </div>
     </main>
     <footer>
@@ -39,7 +42,5 @@
         <a href="#">Términos y condiciones</a>
         <p>© 2024 Serenity. All Rights Reserved</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>

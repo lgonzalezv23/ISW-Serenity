@@ -138,7 +138,7 @@
                 $_SESSION['username'] = $username;
                 $_SESSION['tipo'] = $row['tipo'];
                 if ($row['tipo'] == 'usuario') {
-                    header("Location: index.html");
+                    header("Location: user_dashboard.html");
                 } else if ($row['tipo'] == 'especialista') {
                     header("Location: esp_dashboard.html");
                 }
