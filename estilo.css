@@ -265,3 +265,61 @@ body.aromaterapia {
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+
+/* Estilos específicos para la página de Ejercicios de Respiración */
+body.ejercicios-respiracion {
+    background: #f5f5f5 !important; /* Fondo gris claro */
+    background-size: cover;
+}
+
+.ejercicios-respiracion-main {
+    height: auto; /* Asegura que el main tenga altura automática */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 40px; /* Añade un poco de padding */
+}
+
+.ejercicios-respiracion-section {
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 40px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ejercicios-respiracion-section img.ejercicios-respiracion-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ejercicios-respiracion-section h1 {
+    font-size: 2.5em;
+    color: #16a085; /* Color diferente para el título */
+    font-family: 'Georgia', serif;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.ejercicios-respiracion-section p {
+    font-size: 1.2em;
+    color: #2c3e50;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.8;
+    text-align: justify;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
