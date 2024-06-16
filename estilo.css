@@ -211,7 +211,7 @@ body.relajacion-guiada {
 
 /* Estilos específicos para la página de Aromaterapia */
 body.aromaterapia {
-    background: #ffffff !important; /* Fondo blanco */
+    background: #f5f5f5 !important; /* Fondo gris claro */
     background-size: cover;
 }
 
@@ -222,45 +222,46 @@ body.aromaterapia {
     align-items: center;
     text-align: center;
     flex-direction: column;
-    padding: 20px; /* Añade un poco de padding */
+    padding: 40px; /* Añade un poco de padding */
 }
 
 .aromaterapia-section {
-    background-color: #e3f2fd; /* Fondo claro */
-    padding: 30px;
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 40px;
     text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .aromaterapia-section img.aromaterapia-image {
     width: 100%;
     max-width: 600px;
     height: auto;
-    margin-bottom: 20px;
-    border-radius: 10px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .aromaterapia-section h1 {
-    font-size: 3em;
-    color: #1e88e5;
-    font-family: 'Open Sans', sans-serif;
-    margin-bottom: 20px;
+    font-size: 2.5em;
+    color: #16a085; /* Color diferente para el título */
+    font-family: 'Georgia', serif;
+    margin-bottom: 25px;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: bold;
+    letter-spacing: 1.5px;
 }
 
 .aromaterapia-section p {
-    font-size: 1.3em;
-    color: #424242;
-    font-family: 'Lora', serif;
+    font-size: 1.2em;
+    color: #2c3e50;
+    font-family: 'Arial', sans-serif;
     line-height: 1.8;
     text-align: justify;
     margin: 0 auto;
-    max-width: 800px;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #ecf0f1;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
