@@ -149,3 +149,61 @@ main {
     font-size: 1em; /* Ajusta el tamaño del icono */
     vertical-align: middle; /* Alinea el icono verticalmente con el texto */
 }
+
+
+
+/* Estilos específicos para la página de Relajación Guiada */
+body.relajacion-guiada {
+    background: #ffffff !important; /* Fondo blanco */
+    background-size: cover;
+}
+
+.relajacion-guiada-main {
+    height: auto; /* Asegura que el main tenga altura automática */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 20px; /* Añade un poco de padding */
+}
+
+.relajacion-guiada-section {
+    background-color: #e3f2fd; /* Fondo claro */
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.relajacion-guiada-section img.relajacion-guiada-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.relajacion-guiada-section h1 {
+    font-size: 3em;
+    color: #1e88e5;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.relajacion-guiada-section p {
+    font-size: 1.3em;
+    color: #424242;
+    font-family: 'Lora', serif;
+    line-height: 1.8;
+    text-align: justify;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
