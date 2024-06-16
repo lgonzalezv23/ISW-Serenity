@@ -7,6 +7,7 @@ body {
     padding: 0;
     background: url('bg2.jpg') no-repeat center center fixed;
     background-size: cover;
+    animation: fadeIn 1s ease-in-out; /* Animación de entrada */
 }
 
 header {
