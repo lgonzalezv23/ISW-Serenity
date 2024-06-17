@@ -7,7 +7,8 @@ body {
     padding: 0;
     background: url('bg2.jpg') no-repeat center center fixed;
     background-size: cover;
-    animation: fadeIn 1s ease-in-out; /* Animación de entrada */
+    animation: fadeIn 1s ease-in-out;
+    /* Animación de entrada */
 }
 
 header {
@@ -62,7 +63,7 @@ nav ul li a:focus {
     position: absolute;
     background-color: #005f7f;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     border-radius: 5px;
     overflow: hidden;
@@ -89,12 +90,18 @@ nav ul li a:focus {
 
 .dropdown:hover .dropdown-content {
     display: block;
-    animation: fadeIn 0.3s forwards; /* Asegura que la animación sea hacia adelante */
+    animation: fadeIn 0.3s forwards;
+    /* Asegura que la animación sea hacia adelante */
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 main {
@@ -146,30 +153,36 @@ main {
 }
 
 .profile-icon {
-    font-size: 1em; /* Ajusta el tamaño del icono */
-    vertical-align: middle; /* Alinea el icono verticalmente con el texto */
+    font-size: 1em;
+    /* Ajusta el tamaño del icono */
+    vertical-align: middle;
+    /* Alinea el icono verticalmente con el texto */
 }
 
 
 
 /* Estilos específicos para la página de Relajación Guiada */
 body.relajacion-guiada {
-    background: #ffffff !important; /* Fondo blanco */
+    background: #ffffff !important;
+    /* Fondo blanco */
     background-size: cover;
 }
 
 .relajacion-guiada-main {
-    height: auto; /* Asegura que el main tenga altura automática */
+    height: auto;
+    /* Asegura que el main tenga altura automática */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
-    padding: 20px; /* Añade un poco de padding */
+    padding: 20px;
+    /* Añade un poco de padding */
 }
 
 .relajacion-guiada-section {
-    background-color: #e3f2fd; /* Fondo claro */
+    background-color: #e3f2fd;
+    /* Fondo claro */
     padding: 30px;
     text-align: center;
     border-radius: 10px;
@@ -211,22 +224,26 @@ body.relajacion-guiada {
 
 /* Estilos específicos para la página de Aromaterapia */
 body.aromaterapia {
-    background: #f5f5f5 !important; /* Fondo gris claro */
+    background: #f5f5f5 !important;
+    /* Fondo gris claro */
     background-size: cover;
 }
 
 .aromaterapia-main {
-    height: auto; /* Asegura que el main tenga altura automática */
+    height: auto;
+    /* Asegura que el main tenga altura automática */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
-    padding: 40px; /* Añade un poco de padding */
+    padding: 40px;
+    /* Añade un poco de padding */
 }
 
 .aromaterapia-section {
-    background-color: #ffffff; /* Fondo blanco */
+    background-color: #ffffff;
+    /* Fondo blanco */
     padding: 40px;
     text-align: center;
     border-radius: 15px;
@@ -246,7 +263,8 @@ body.aromaterapia {
 
 .aromaterapia-section h1 {
     font-size: 2.5em;
-    color: #16a085; /* Color diferente para el título */
+    color: #16a085;
+    /* Color diferente para el título */
     font-family: 'Georgia', serif;
     margin-bottom: 25px;
     text-transform: uppercase;
@@ -269,23 +287,27 @@ body.aromaterapia {
 
 /* Estilos específicos para la página de Ejercicios de Respiración */
 body.ejercicios-respiracion {
-    background: #e0f7fa !important; /* Fondo azul claro */
+    background: #e0f7fa !important;
+    /* Fondo azul claro */
     background-size: cover;
     font-family: 'Arial', sans-serif;
 }
 
 .ejercicios-respiracion-main {
-    height: auto; /* Asegura que el main tenga altura automática */
+    height: auto;
+    /* Asegura que el main tenga altura automática */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
-    padding: 60px; /* Añade un poco de padding */
+    padding: 60px;
+    /* Añade un poco de padding */
 }
 
 .ejercicios-respiracion-section {
-    background-color: #ffffff; /* Fondo blanco */
+    background-color: #ffffff;
+    /* Fondo blanco */
     padding: 50px;
     text-align: center;
     border-radius: 20px;
@@ -305,7 +327,8 @@ body.ejercicios-respiracion {
 
 .ejercicios-respiracion-section h1 {
     font-size: 2.8em;
-    color: #390079; /* Color diferente para el título */
+    color: #390079;
+    /* Color diferente para el título */
     font-family: 'Georgia', serif;
     margin-bottom: 30px;
     text-transform: uppercase;
@@ -327,23 +350,27 @@ body.ejercicios-respiracion {
 
 /* Estilos específicos para la página de Meditación */
 body.meditacion {
-    background: #fff3e0 !important; /* Fondo naranja claro */
+    background: #fff3e0 !important;
+    /* Fondo naranja claro */
     background-size: cover;
     font-family: 'Arial', sans-serif;
 }
 
 .meditacion-main {
-    height: auto; /* Asegura que el main tenga altura automática */
+    height: auto;
+    /* Asegura que el main tenga altura automática */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
-    padding: 60px; /* Añade un poco de padding */
+    padding: 60px;
+    /* Añade un poco de padding */
 }
 
 .meditacion-section {
-    background-color: #ffffff; /* Fondo blanco */
+    background-color: #ffffff;
+    /* Fondo blanco */
     padding: 50px;
     text-align: center;
     border-radius: 20px;
@@ -363,7 +390,8 @@ body.meditacion {
 
 .meditacion-section h1 {
     font-size: 2.8em;
-    color: #d32f2f; /* Color diferente para el título */
+    color: #d32f2f;
+    /* Color diferente para el título */
     font-family: 'Georgia', serif;
     margin-bottom: 30px;
     text-transform: uppercase;
@@ -386,23 +414,27 @@ body.meditacion {
 
 /* Estilos específicos para la página de Citas con Psiquiatras y Psicólogos */
 body.citas {
-    background: #f0f4c3 !important; /* Fondo verde claro */
+    background: #f0f4c3 !important;
+    /* Fondo verde claro */
     background-size: cover;
     font-family: 'Arial', sans-serif;
 }
 
 .citas-main {
-    height: auto; /* Asegura que el main tenga altura automática */
+    height: auto;
+    /* Asegura que el main tenga altura automática */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
-    padding: 60px; /* Añade un poco de padding */
+    padding: 60px;
+    /* Añade un poco de padding */
 }
 
 .citas-section {
-    background-color: #ffffff; /* Fondo blanco */
+    background-color: #ffffff;
+    /* Fondo blanco */
     padding: 50px;
     text-align: center;
     border-radius: 20px;
@@ -422,7 +454,8 @@ body.citas {
 
 .citas-section h1 {
     font-size: 2.8em;
-    color: #ef330d; /* Color diferente para el título */
+    color: #ef330d;
+    /* Color diferente para el título */
     font-family: 'Georgia', serif;
     margin-bottom: 30px;
     text-transform: uppercase;
@@ -445,23 +478,27 @@ body.citas {
 
 /* Estilos específicos para la página de Estrés */
 body.estres {
-    background: #ffe6e6 !important; /* Fondo rosa claro */
+    background: #ffe6e6 !important;
+    /* Fondo rosa claro */
     background-size: cover;
     font-family: 'Arial', sans-serif;
 }
 
 .estres-main {
-    height: auto; /* Asegura que el main tenga altura automática */
+    height: auto;
+    /* Asegura que el main tenga altura automática */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
-    padding: 50px; /* Añade un poco de padding */
+    padding: 50px;
+    /* Añade un poco de padding */
 }
 
 .estres-section {
-    background-color: #ffffff; /* Fondo blanco */
+    background-color: #ffffff;
+    /* Fondo blanco */
     padding: 40px;
     text-align: center;
     border-radius: 15px;
@@ -481,7 +518,8 @@ body.estres {
 
 .estres-section h1 {
     font-size: 2.5em;
-    color: #b71c1c; /* Color diferente para el título */
+    color: #b71c1c;
+    /* Color diferente para el título */
     font-family: 'Georgia', serif;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -502,38 +540,12 @@ body.estres {
 }
 
 
+
 /* Estilos específicos para la página de Ansiedad */
 body.ansiedad {
-    background: #f0f4c3 !important; /* Fondo verde claro */
+    background: #e0f7fa !important; /* Fondo azul pastel claro */
+    background-size: cover;
     font-family: 'Arial', sans-serif;
-    color: #333; /* Color del texto */
-}
-
-header {
-    background-color: #8e44ad; /* Color del encabezado */
-    padding: 20px;
-    text-align: center;
-    color: #fff;
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    background-color: #8e44ad; /* Fondo del nav */
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
 }
 
 .ansiedad-main {
@@ -543,14 +555,14 @@ nav ul li a {
     align-items: center;
     text-align: center;
     flex-direction: column;
-    padding: 50px; /* Añade un poco de padding */
+    padding: 60px; /* Añade un poco de padding */
 }
 
 .ansiedad-section {
     background-color: #ffffff; /* Fondo blanco */
-    padding: 40px;
-    text-align: left;
-    border-radius: 15px;
+    padding: 50px;
+    text-align: center;
+    border-radius: 20px;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
     max-width: 900px;
     margin: 0 auto;
@@ -558,37 +570,37 @@ nav ul li a {
 
 .ansiedad-section img.ansiedad-image {
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
     height: auto;
-    margin-bottom: 30px;
-    border-radius: 15px;
+    margin-bottom: 40px;
+    border-radius: 20px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .ansiedad-section h1 {
-    font-size: 2.5em;
-    color: #8e44ad; /* Color diferente para el título */
+    font-size: 2.8em;
+    color: #7e57c2; /* Color pastel diferente para el título */
     font-family: 'Georgia', serif;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
 }
 
 .ansiedad-section p {
-    font-size: 1.2em;
+    font-size: 1.3em;
     color: #2c3e50;
     font-family: 'Arial', sans-serif;
     line-height: 1.8;
     text-align: justify;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #dfe6e9;
-    border-radius: 10px;
+    padding: 25px;
+    background-color: #f3e5f5; /* Fondo pastel para el texto */
+    border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 footer {
-    background-color: #8e44ad; /* Color del pie de página */
+    background-color: #7e57c2; /* Color pastel para el pie de página */
     color: #fff;
     text-align: center;
     padding: 20px 0;
