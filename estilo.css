@@ -769,3 +769,77 @@ body.insomnio {
     line-height: 1.6;
     margin: 15px 0;
 }
+
+
+/* Estilos específicos para la página de Ataques de pánico */
+body.panico {
+    background: #fbe9e7 !important; /* Fondo pastel claro */
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.panico-main {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+    margin-bottom: 60px; /* Espacio para el footer */
+}
+
+.panico-section {
+    background-color: #ffffff;
+    padding: 30px;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.panico-section img.panico-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.panico-section h1 {
+    font-size: 2em;
+    color: #d32f2f;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.panico-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.panico-content .block {
+    background-color: #ffccbc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.panico-content .block p {
+    font-size: 1em;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+}
