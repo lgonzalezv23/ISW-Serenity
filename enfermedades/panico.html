@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ataques de pánico</title>
+    <link rel="stylesheet" href="../estilo.css">
+    <link rel="stylesheet" href="../footer.css">
+    <script src="../scripts.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="panico">
+    <main class="panico-main">
+        <div class="panico-section">
+            <img src="../images/panico.jpg" alt="Imagen de Ataques de pánico" class="panico-image">
+            <h1>Ataques de pánico</h1>
+            <div class="panico-content">
+                <div class="block">
+                    <p>Un ataque de pánico es un episodio repentino de miedo intenso que provoca reacciones físicas graves cuando no existe ningún peligro real o causa aparente. Los ataques de pánico pueden provocar mucho miedo. Cuando se presenta un ataque de pánico, puedes sentir que estás perdiendo el control, que estás teniendo un ataque cardíaco o, incluso, que vas a morir.</p>
+                </div>
+                <div class="block">
+                    <p>Muchas personas tienen solo uno o dos ataques de pánico en toda su vida, y el problema quizás desaparece cuando se resuelve una situación estresante. Sin embargo, si tienes ataques de pánico inesperados y recurrentes, y pasas mucho tiempo con miedo constante de sufrir otro ataque, es probable que tengas una afección llamada "trastorno de pánico".</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Serenity</h2>
+            </div>
+            <div class="footer-links">
+                <a href="#">Política de privacidad</a> |
+                <a href="#">Términos y condiciones</a>
+            </div>
+            <div class="footer-socials">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Serenity. All Rights Reserved</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Script para el acordeón
+            var acc = document.querySelectorAll(".accordion");
+            acc.forEach(function(accItem) {
+                accItem.addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    } 
+                });
+            });
+        });
+    </script>
+</body>
+</html>
