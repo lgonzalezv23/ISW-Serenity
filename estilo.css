@@ -701,7 +701,7 @@ body.insomnio {
 
 .insomnio-section {
     background-color: #ffffff; /* Fondo blanco */
-    padding: 50px;
+    padding: 20px;
     text-align: left;
     border-radius: 20px;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
@@ -713,29 +713,43 @@ body.insomnio {
     width: 100%;
     max-width: 700px;
     height: auto;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     border-radius: 20px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-.insomnio-section h1 {
-    font-size: 2.8em;
-    color: #0288d1; /* Color pastel diferente para el título */
-    font-family: 'Georgia', serif;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+.accordion {
+    background-color: #0288d1;
+    color: #fff;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.5em;
+    transition: 0.4s;
+    margin-top: 10px;
 }
 
-.insomnio-section p {
+.active, .accordion:hover {
+    background-color: #0277bd;
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: #b3e5fc; /* Fondo pastel para el panel */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    border-radius: 0 0 20px 20px;
+}
+
+.panel p {
     font-size: 1.3em;
     color: #2c3e50;
     font-family: 'Arial', sans-serif;
     line-height: 1.8;
     text-align: justify;
-    margin: 0 auto;
-    padding: 25px;
-    background-color: #b3e5fc; /* Fondo pastel para el texto */
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px 0;
 }
