@@ -441,3 +441,63 @@ body.citas {
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+
+/* Estilos específicos para la página de Estrés */
+body.estres {
+    background: #ffe6e6 !important; /* Fondo rosa claro */
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+}
+
+.estres-main {
+    height: auto; /* Asegura que el main tenga altura automática */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 50px; /* Añade un poco de padding */
+}
+
+.estres-section {
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 40px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.estres-section img.estres-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.estres-section h1 {
+    font-size: 2.5em;
+    color: #b71c1c; /* Color diferente para el título */
+    font-family: 'Georgia', serif;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.estres-section p {
+    font-size: 1.2em;
+    color: #2c3e50;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.8;
+    text-align: justify;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffcccb;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
