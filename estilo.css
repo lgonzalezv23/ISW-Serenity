@@ -500,3 +500,103 @@ body.estres {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+
+/* Estilos específicos para la página de Ansiedad */
+body.ansiedad {
+    background: #f0f4c3 !important; /* Fondo verde claro */
+    font-family: 'Arial', sans-serif;
+    color: #333; /* Color del texto */
+}
+
+header {
+    background-color: #8e44ad; /* Color del encabezado */
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #8e44ad; /* Fondo del nav */
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.ansiedad-main {
+    height: auto; /* Asegura que el main tenga altura automática */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 50px; /* Añade un poco de padding */
+}
+
+.ansiedad-section {
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 40px;
+    text-align: left;
+    border-radius: 15px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ansiedad-section img.ansiedad-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ansiedad-section h1 {
+    font-size: 2.5em;
+    color: #8e44ad; /* Color diferente para el título */
+    font-family: 'Georgia', serif;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.ansiedad-section p {
+    font-size: 1.2em;
+    color: #2c3e50;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.8;
+    text-align: justify;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #dfe6e9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #8e44ad; /* Color del pie de página */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
