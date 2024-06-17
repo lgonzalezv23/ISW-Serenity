@@ -631,57 +631,52 @@ body.depresion {
     padding: 60px; /* Añade un poco de padding */
 }
 
-.depresion-section {
-    background-color: #ffffff; /* Fondo blanco */
-    padding: 50px;
-    text-align: center;
-    border-radius: 20px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-    max-width: 900px;
+.depresion-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.depresion-section img.depresion-image {
-    width: 100%;
-    max-width: 700px;
-    height: auto;
-    margin-bottom: 40px;
+.depresion-card {
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 30px;
+    text-align: center;
     border-radius: 20px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    max-width: 350px;
+    margin: 20px;
+    flex: 1 1 300px;
+}
+
+.depresion-card img.depresion-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 15px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-.depresion-section h1 {
-    font-size: 2.8em;
+.depresion-card h1 {
+    font-size: 2em;
     color: #5e35b1; /* Color pastel diferente para el título */
     font-family: 'Georgia', serif;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
 }
 
-.depresion-section p {
-    font-size: 1.3em;
+.depresion-card p {
+    font-size: 1.1em;
     color: #2c3e50;
     font-family: 'Arial', sans-serif;
     line-height: 1.8;
     text-align: justify;
-    margin: 0 auto;
-    padding: 25px;
     background-color: #e8eaf6; /* Fondo pastel para el texto */
-    border-radius: 15px;
+    padding: 15px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-footer {
-    background-color: #5e35b1; /* Color pastel para el pie de página */
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 20px;
-}
-
-footer a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
+    margin: 0 auto;
 }
