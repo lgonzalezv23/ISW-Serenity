@@ -12,9 +12,9 @@ $username = $_SESSION['username'];
 $tipo = $_SESSION['tipo'];
 
 if ($tipo == 'usuario') {
-    $sql = "SELECT nombre, apellidos, fecha_nacimiento, username, tipo FROM users WHERE username = ?";
+    $sql = "SELECT id, nombre, apellidos, fecha_nacimiento, username, tipo FROM users WHERE username = ?";
 } else if ($tipo == 'especialista') {
-    $sql = "SELECT nombre, apellidos, fecha_nacimiento, username, tipo FROM especialistas WHERE username = ?";
+    $sql = "SELECT id, nombre, apellidos, fecha_nacimiento, username, tipo FROM especialistas WHERE username = ?";
 }
 
 $stmt = $conn->prepare($sql);
@@ -24,12 +24,27 @@ $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
+    $id = $row['id'];
     $nombre = $row['nombre'];
     $apellidos = $row['apellidos'];
     $fecha_nacimiento = $row['fecha_nacimiento'];
 } else {
     echo "No user found with that username";
     exit();
+}
+
+if ($tipo == 'especialista') {
+    $sql_contacto = "SELECT correo, telefono FROM contacto_especialista WHERE especialista_id = ?";
+    $stmt_contacto = $conn->prepare($sql_contacto);
+    $stmt_contacto->bind_param("i", $id);
+    $stmt_contacto->execute();
+    $result_contacto = $stmt_contacto->get_result();
+
+    if ($result_contacto->num_rows > 0) {
+        $contacto = $result_contacto->fetch_assoc();
+    }
+
+    $stmt_contacto->close();
 }
 
 $conn->close();
@@ -150,13 +165,19 @@ $conn->close();
             line-height: 1.2;
         }
 
+        .contact-info {
+            padding: 10px 0px;
+            color: #5A5A5A;
+            line-height: 1.2;
+        }
+
         .buttons {
             display: flex;
             justify-content: space-around;
             margin-top: 20px;
         }
 
-        .btn, .btn-home, .btn-appointments {
+        .btn, .btn-home, .btn-appointments, .btn-contact {
             width: 125px;
             padding-top: 10px;
             padding-bottom: 10px;
@@ -195,6 +216,15 @@ $conn->close();
 
         .btn-appointments:hover {
             background: #e67e22;
+        }
+
+        .btn-contact {
+            background: #3498db;
+            border: #2980b9 1px solid;
+        }
+
+        .btn-contact:hover {
+            background: #2980b9;
         }
 
         @keyframes animatop {
@@ -247,6 +277,10 @@ $conn->close();
                 window.location.href = 'especialista/consultar_citas_especialista.php';
             <?php } ?>
         }
+
+        function redirectContact() {
+            window.location.href = 'contacto_especialista.php';
+        }
     </script>
 </head>
 <body>
@@ -260,6 +294,15 @@ $conn->close();
                     <p class="bio">
                         Fecha de Nacimiento: <?php echo htmlspecialchars($fecha_nacimiento); ?>
                     </p>
+                    <?php if ($tipo == 'especialista'): ?>
+                        <div class="contact-info">
+                            <p>Correo: <?php echo isset($contacto) ? htmlspecialchars($contacto['correo']) : 'Sin contacto'; ?></p>
+                            <p>Teléfono: <?php echo isset($contacto) ? htmlspecialchars($contacto['telefono']) : 'Sin contacto'; ?></p>
+                            <div class="buttons">
+                                <div class="btn-contact" onclick="redirectContact()"><?php echo isset($contacto) ? 'Actualizar Contacto' : 'Agregar Contacto'; ?></div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
