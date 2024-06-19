@@ -7,8 +7,14 @@ $error_message = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $tipo = $_POST['tipo'];
 
-    $sql = "SELECT * FROM users WHERE username = ?";
+    if ($tipo == 'usuario') {
+        $sql = "SELECT * FROM users WHERE username = ?";
+    } else if ($tipo == 'especialista') {
+        $sql = "SELECT * FROM especialistas WHERE username = ?";
+    }
+
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $username);
     $stmt->execute();
@@ -26,10 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             exit();
         } else {
-            $error_message = "Invalid password";
+            $error_message = "Contraseña incorrecta";
         }
     } else {
-        $error_message = "No user found with that username";
+        $error_message = "No se encontró un usuario con ese nombre";
     }
 
     $stmt->close();
@@ -102,26 +108,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             animation: fadeInUp 0.5s forwards;
             animation-delay: calc(0.1s * var(--i));
         }
-        .wrapper form .row input {
+        .wrapper form .row input, .wrapper form .row select {
             height: 100%;
             width: 100%;
             outline: none;
-            padding-left: 60px;
+            padding-left: 45px;
             border-radius: 5px;
             border: 1px solid lightgrey;
             font-size: 16px;
             transition: all 0.3s ease;
         }
-        form .row input:focus {
+        form .row input:focus, form .row select:focus {
             border-color: #87CEFA;
             box-shadow: inset 0px 0px 2px 2px rgba(135, 206, 250, 0.25);
         }
         form .row input::placeholder {
             color: #999;
         }
-        .wrapper form .row i {
+        form .row i {
             position: absolute;
-            width: 47px;
+            width: 45px;
             height: 100%;
             color: #fff;
             font-size: 18px;
@@ -131,6 +137,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+        form .row select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            padding-left: 15px; /* To make space for the arrow */
+        }
+        form .row select::-ms-expand {
+            display: none;
+        }
+        form .row select option {
+            color: #333;
         }
         .wrapper form .pass {
             margin: -8px 0 20px 0;
@@ -176,27 +194,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="container">
         <div class="wrapper">
-            <div class="title"><span>Iniciar Sesion</span></div>
+            <div class="title"><span>Iniciar Sesión</span></div>
             <form method="POST" action="">
                 <div class="row" style="--i: 1;">
                     <i class="fas fa-user"></i>
-                    <input type="text" name="username" placeholder="Email or User" required>
+                    <input type="text" name="username" placeholder="Correo o Nombre de Usuario" required>
                 </div>
                 <div class="row" style="--i: 2;">
                     <i class="fas fa-lock"></i>
-                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="password" name="password" placeholder="Contraseña" required>
                 </div>
-                <div class="pass" style="--i: 3;"><a href="#">Olvidaste password?</a></div>
-                <div class="row button" style="--i: 4;">
-                    <input type="submit" value="Login">
+                <div class="row" style="--i: 3;">
+                    <i class="fas fa-user-tag"></i>
+                    <select name="tipo" required>
+                        <option value="" disabled selected>Seleccionar tipo</option>
+                        <option value="usuario">Usuario</option>
+                        <option value="especialista">Especialista</option>
+                    </select>
+                </div>
+                <div class="pass" style="--i: 4;"><a href="#">¿Olvidaste la contraseña?</a></div>
+                <div class="row button" style="--i: 5;">
+                    <input type="submit" value="Iniciar Sesión">
                 </div>
                 <?php
                 if (!empty($error_message)) {
-                    echo '<div class="signup-link" style="--i: 5; color: red;">' . $error_message . '</div>';
+                    echo '<div class="signup-link" style="--i: 6; color: red;">' . $error_message . '</div>';
                 }
                 ?>
-                <div class="signup-link" style="--i: 6;">No tienes cuenta? <a href="chose_login.html">Signup now</a></div>
-                <div class="signup-link" style="--i: 7;">Regresar a <a href="init_dashboard.html">Home Page</a></div>
+                <div class="signup-link" style="--i: 7;">¿No tienes una cuenta? <a href="chose_login.html">Regístrate ahora</a></div>
+                <div class="signup-link" style="--i: 8;">Regresar a <a href="init_dashboard.html">Home Page</a></div>
             </form>
         </div>
     </div>

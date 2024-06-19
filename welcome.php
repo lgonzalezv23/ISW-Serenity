@@ -9,7 +9,14 @@ if (!isset($_SESSION['username'])) {
 include 'config.php';
 
 $username = $_SESSION['username'];
-$sql = "SELECT nombre, apellidos, fecha_nacimiento, username, tipo FROM users WHERE username = ?";
+$tipo = $_SESSION['tipo'];
+
+if ($tipo == 'usuario') {
+    $sql = "SELECT nombre, apellidos, fecha_nacimiento, username, tipo FROM users WHERE username = ?";
+} else if ($tipo == 'especialista') {
+    $sql = "SELECT nombre, apellidos, fecha_nacimiento, username, tipo FROM especialistas WHERE username = ?";
+}
+
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $username);
 $stmt->execute();
@@ -20,7 +27,6 @@ if ($result->num_rows > 0) {
     $nombre = $row['nombre'];
     $apellidos = $row['apellidos'];
     $fecha_nacimiento = $row['fecha_nacimiento'];
-    $tipo = $row['tipo'];
 } else {
     echo "No user found with that username";
     exit();
