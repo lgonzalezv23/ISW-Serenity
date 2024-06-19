@@ -195,7 +195,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo '<div class="signup-link" style="--i: 5; color: red;">' . $error_message . '</div>';
                 }
                 ?>
-                <div class="signup-link" style="--i: 6;">No tienes cuenta? <a href="signup.php">Signup now</a></div>
+                <div class="signup-link" style="--i: 6;">No tienes cuenta? <a href="chose_login.html">Signup now</a></div>
                 <div class="signup-link" style="--i: 7;">Regresar a <a href="init_dashboard.html">Home Page</a></div>
             </form>
         </div>
