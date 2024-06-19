@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Usuario</title> 
+    <title>Registro de Especialista</title> 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
         * {
@@ -137,9 +137,9 @@
 </head>
 <body>
     <div class="wrapper">
-        <h2>Registro de Usuario</h2>
+        <h2>Registro de Especialista</h2>
         <form method="POST" action="register.php">
-            <input type="hidden" name="tipo" value="usuario">
+            <input type="hidden" name="tipo" value="especialista">
             <div class="input-box" style="--i: 1;">
                 <input type="text" name="nombre" placeholder="Nombre" required>
             </div>
@@ -158,10 +158,13 @@
             <div class="input-box" style="--i: 6;">
                 <input type="password" name="confirm_password" placeholder="Confirmar Contraseña" required>
             </div>
-            <div class="input-box button" style="--i: 7;">
+            <div class="input-box" style="--i: 7;">
+                <input type="text" name="cedula" placeholder="Cédula" required>
+            </div>
+            <div class="input-box button" style="--i: 8;">
                 <input type="submit" value="Crear Cuenta">
             </div>
-            <div class="text" style="--i: 8;">
+            <div class="text" style="--i: 9;">
                 <h3>¿Ya tienes una cuenta? <a href="login.php">Inicia sesión</a></h3>
             </div>
         </form>
