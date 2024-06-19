@@ -160,6 +160,26 @@ $conn->close();
             color: #555;
             margin-top: 20px;
         }
+
+        .btn-agregar {
+            background-color: #6495ED;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 20px 0;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-agregar:hover {
+            background-color: #4169E1;
+        }
     </style>
 </head>
 <body>
@@ -167,7 +187,7 @@ $conn->close();
         <a href="../esp_dashboard.html">Serenity</a>
     </div>
     <div class="main-container">
-        <h2 class="title">Mis Horarioss</h2>
+        <h2 class="title">Mis Horarios</h2>
         <div class="container">
             <?php if (!empty($horarios)): ?>
                 <?php foreach ($horarios as $dia => $dia_horarios): ?>
@@ -188,6 +208,7 @@ $conn->close();
                 <p class="no-horarios">No tienes horarios creados.</p>
             <?php endif; ?>
         </div>
+        <a href="horarios.html" class="btn-agregar">Agregar Horario</a>
     </div>
 </body>
 </html>
