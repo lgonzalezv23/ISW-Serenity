@@ -9,11 +9,12 @@ if (!isset($_SESSION['username']) || $_SESSION['tipo'] != 'usuario') {
 
 $usuario_id = $_SESSION['user_id'];
 
-// Obtener citas del usuario
-$sql_citas = "SELECT c.id, c.fecha, h.dia_semana, h.hora_inicio, h.hora_fin, e.nombre, e.apellidos 
+// Obtener citas del usuario junto con los datos de contacto del especialista
+$sql_citas = "SELECT c.id, c.fecha, h.dia_semana, h.hora_inicio, h.hora_fin, e.nombre, e.apellidos, ce.correo, ce.telefono
               FROM citas c
               JOIN horarios h ON c.horario_id = h.id
               JOIN especialistas e ON h.especialista_id = e.id
+              LEFT JOIN contacto_especialista ce ON e.id = ce.especialista_id
               WHERE c.usuario_id = ?
               ORDER BY c.fecha DESC";
 $stmt_citas = $conn->prepare($sql_citas);
@@ -77,7 +78,8 @@ $result_citas = $stmt_citas->get_result();
         }
 
         .container {
-            width: 80%;
+            width: 100%;
+            max-width: 1200px;
             background: white;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -85,6 +87,7 @@ $result_citas = $stmt_citas->get_result();
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 20px;
         }
 
         .titulo {
@@ -102,6 +105,7 @@ $result_citas = $stmt_citas->get_result();
         .content {
             padding: 20px;
             width: 100%;
+            overflow-x: auto;
         }
 
         .citas table {
@@ -133,6 +137,30 @@ $result_citas = $stmt_citas->get_result();
         .cancelar-button:hover {
             background: #c0392b;
         }
+
+        @media (max-width: 768px) {
+            .citas th, .citas td {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .titulo {
+                font-size: 20px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .citas th, .citas td {
+                font-size: 12px;
+                padding: 6px;
+            }
+
+            .titulo {
+                font-size: 18px;
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -151,6 +179,8 @@ $result_citas = $stmt_citas->get_result();
                             <th>Hora de Inicio</th>
                             <th>Hora de Fin</th>
                             <th>Especialista</th>
+                            <th>Correo</th>
+                            <th>Teléfono</th>
                             <th>Acción</th>
                         </tr>
                     </thead>
@@ -163,6 +193,8 @@ $result_citas = $stmt_citas->get_result();
                                     <td><?php echo htmlspecialchars($row['hora_inicio']); ?></td>
                                     <td><?php echo htmlspecialchars($row['hora_fin']); ?></td>
                                     <td><?php echo htmlspecialchars($row['nombre'] . " " . $row['apellidos']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['correo'] ?? 'Sin contacto'); ?></td>
+                                    <td><?php echo htmlspecialchars($row['telefono'] ?? 'Sin contacto'); ?></td>
                                     <td>
                                         <form method="POST" action="cancelar_cita.php" style="display:inline;">
                                             <input type="hidden" name="cita_id" value="<?php echo $row['id']; ?>">
@@ -173,7 +205,7 @@ $result_citas = $stmt_citas->get_result();
                             <?php endwhile; ?>
                         <?php else: ?>
                             <tr>
-                                <td colspan="6">No tienes citas agendadas.</td>
+                                <td colspan="8">No tienes citas agendadas.</td>
                             </tr>
                         <?php endif; ?>
                     </tbody>
