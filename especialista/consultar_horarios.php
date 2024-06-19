@@ -9,7 +9,7 @@ if (!isset($_SESSION['username']) || $_SESSION['tipo'] != 'especialista') {
 
 $especialista_id = $_SESSION['user_id']; // Asegúrate de que user_id está almacenado en la sesión correctamente
 
-$sql = "SELECT dia_semana, hora_inicio, hora_fin FROM horarios WHERE especialista_id = ? ORDER BY FIELD(dia_semana, 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo')";
+$sql = "SELECT id, dia_semana, hora_inicio, hora_fin FROM horarios WHERE especialista_id = ? ORDER BY FIELD(dia_semana, 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo')";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $especialista_id);
 $stmt->execute();
@@ -56,6 +56,19 @@ $conn->close();
             margin-top: 20px;
             border-radius: 5px;
         }
+        .btn-eliminar {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -68,6 +81,7 @@ $conn->close();
                     <tr>
                         <th>Hora de Inicio</th>
                         <th>Hora de Fin</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -75,6 +89,12 @@ $conn->close();
                         <tr>
                             <td><?php echo htmlspecialchars($horario['hora_inicio']); ?></td>
                             <td><?php echo htmlspecialchars($horario['hora_fin']); ?></td>
+                            <td>
+                                <form method="POST" action="eliminar_horario.php" style="display:inline;">
+                                    <input type="hidden" name="id" value="<?php echo $horario['id']; ?>">
+                                    <input type="submit" value="Eliminar" class="btn-eliminar">
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
