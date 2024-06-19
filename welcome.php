@@ -12,9 +12,9 @@ $username = $_SESSION['username'];
 $tipo = $_SESSION['tipo'];
 
 if ($tipo == 'usuario') {
-    $sql = "SELECT id, nombre, apellidos, fecha_nacimiento, username, tipo FROM users WHERE username = ?";
+    $sql = "SELECT nombre, apellidos, fecha_nacimiento, username, tipo FROM users WHERE username = ?";
 } else if ($tipo == 'especialista') {
-    $sql = "SELECT id, nombre, apellidos, fecha_nacimiento, username, tipo FROM especialistas WHERE username = ?";
+    $sql = "SELECT nombre, apellidos, fecha_nacimiento, username, tipo FROM especialistas WHERE username = ?";
 }
 
 $stmt = $conn->prepare($sql);
@@ -24,26 +24,26 @@ $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
-    $id = $row['id'];
     $nombre = $row['nombre'];
     $apellidos = $row['apellidos'];
     $fecha_nacimiento = $row['fecha_nacimiento'];
+    $tipo = ucfirst($row['tipo']);  // Capitalize the first letter of tipo
 } else {
     echo "No user found with that username";
     exit();
 }
 
-if ($tipo == 'especialista') {
+// Obtener información de contacto si es especialista
+$contacto = null;
+if ($tipo == 'Especialista') {
     $sql_contacto = "SELECT correo, telefono FROM contacto_especialista WHERE especialista_id = ?";
     $stmt_contacto = $conn->prepare($sql_contacto);
-    $stmt_contacto->bind_param("i", $id);
+    $stmt_contacto->bind_param("i", $_SESSION['user_id']);
     $stmt_contacto->execute();
     $result_contacto = $stmt_contacto->get_result();
-
     if ($result_contacto->num_rows > 0) {
         $contacto = $result_contacto->fetch_assoc();
     }
-
     $stmt_contacto->close();
 }
 
@@ -165,12 +165,6 @@ $conn->close();
             line-height: 1.2;
         }
 
-        .contact-info {
-            padding: 10px 0px;
-            color: #5A5A5A;
-            line-height: 1.2;
-        }
-
         .buttons {
             display: flex;
             justify-content: space-around;
@@ -219,12 +213,12 @@ $conn->close();
         }
 
         .btn-contact {
-            background: #3498db;
-            border: #2980b9 1px solid;
+            background: #6495ED;
+            border: #4169E1 1px solid;
         }
 
         .btn-contact:hover {
-            background: #2980b9;
+            background: #4169E1;
         }
 
         @keyframes animatop {
@@ -263,17 +257,17 @@ $conn->close();
     </style>
     <script>
         function redirectHome() {
-            <?php if ($tipo == 'usuario') { ?>
+            <?php if ($tipo == 'Usuario') { ?>
                 window.location.href = 'user_dashboard.html';
-            <?php } else if ($tipo == 'especialista') { ?>
+            <?php } else if ($tipo == 'Especialista') { ?>
                 window.location.href = 'esp_dashboard.html';
             <?php } ?>
         }
 
         function redirectAppointments() {
-            <?php if ($tipo == 'usuario') { ?>
+            <?php if ($tipo == 'Usuario') { ?>
                 window.location.href = 'usuario/consultar_citas.php';
-            <?php } else if ($tipo == 'especialista') { ?>
+            <?php } else if ($tipo == 'Especialista') { ?>
                 window.location.href = 'especialista/consultar_citas_especialista.php';
             <?php } ?>
         }
@@ -294,14 +288,9 @@ $conn->close();
                     <p class="bio">
                         Fecha de Nacimiento: <?php echo htmlspecialchars($fecha_nacimiento); ?>
                     </p>
-                    <?php if ($tipo == 'especialista'): ?>
-                        <div class="contact-info">
-                            <p>Correo: <?php echo isset($contacto) ? htmlspecialchars($contacto['correo']) : 'Sin contacto'; ?></p>
-                            <p>Teléfono: <?php echo isset($contacto) ? htmlspecialchars($contacto['telefono']) : 'Sin contacto'; ?></p>
-                            <div class="buttons">
-                                <div class="btn-contact" onclick="redirectContact()"><?php echo isset($contacto) ? 'Actualizar Contacto' : 'Agregar Contacto'; ?></div>
-                            </div>
-                        </div>
+                    <?php if ($tipo == 'Especialista'): ?>
+                        <p class="bio">Correo: <?php echo isset($contacto['correo']) ? htmlspecialchars($contacto['correo']) : 'Sin contacto'; ?></p>
+                        <p class="bio">Teléfono: <?php echo isset($contacto['telefono']) ? htmlspecialchars($contacto['telefono']) : 'Sin contacto'; ?></p>
                     <?php endif; ?>
                 </div>
             </div>
@@ -319,6 +308,9 @@ $conn->close();
             <a href="logout.php" class="btn">Logout</a>
             <div class="btn-home" onclick="redirectHome()">Home</div>
             <div class="btn-appointments" onclick="redirectAppointments()">Mis Citas</div>
+            <?php if ($tipo == 'Especialista'): ?>
+                <div class="btn-contact" onclick="redirectContact()">Contacto</div>
+            <?php endif; ?>
         </div>
     </div>
 </body>

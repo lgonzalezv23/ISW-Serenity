@@ -12,8 +12,10 @@ if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
 
-// Obtener lista de especialistas
-$sql_especialistas = "SELECT id, nombre, apellidos, username FROM especialistas";
+// Obtener lista de especialistas y sus datos de contacto
+$sql_especialistas = "SELECT e.id, e.nombre, e.apellidos, c.correo, c.telefono 
+                      FROM especialistas e
+                      LEFT JOIN contacto_especialista c ON e.id = c.especialista_id";
 $result_especialistas = $conn->query($sql_especialistas);
 
 // Verifica si la consulta fue exitosa
@@ -122,6 +124,10 @@ if ($result_especialistas === false) {
 
         .horarios {
             margin-top: 20px;
+            background: #87CEFF; /* Cambiar este color de fondo */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .horarios table {
@@ -168,7 +174,8 @@ if ($result_especialistas === false) {
                         <tr>
                             <th>Nombre</th>
                             <th>Apellidos</th>
-                            <th>Username</th>
+                            <th>Correo</th>
+                            <th>Teléfono</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -177,10 +184,11 @@ if ($result_especialistas === false) {
                                 <tr>
                                     <td><?php echo htmlspecialchars($row['nombre']); ?></td>
                                     <td><?php echo htmlspecialchars($row['apellidos']); ?></td>
-                                    <td><?php echo htmlspecialchars($row['username']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['correo'] ?? 'Sin contacto'); ?></td>
+                                    <td><?php echo htmlspecialchars($row['telefono'] ?? 'Sin contacto'); ?></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3">
+                                    <td colspan="4">
                                         <div class="horarios">
                                             <h3>Horarios:</h3>
                                             <?php
@@ -225,7 +233,7 @@ if ($result_especialistas === false) {
                             <?php endwhile; ?>
                         <?php else: ?>
                             <tr>
-                                <td colspan="3">No se encontraron especialistas.</td>
+                                <td colspan="4">No se encontraron especialistas.</td>
                             </tr>
                         <?php endif; ?>
                     </tbody>
