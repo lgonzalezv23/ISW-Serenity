@@ -239,6 +239,14 @@ $conn->close();
                 window.location.href = 'esp_dashboard.html';
             <?php } ?>
         }
+
+        function redirectAppointments() {
+            <?php if ($tipo == 'usuario') { ?>
+                window.location.href = 'usuario/consultar_citas.php';
+            <?php } else if ($tipo == 'especialista') { ?>
+                window.location.href = 'especialista/consultar_citas_especialista.php';
+            <?php } ?>
+        }
     </script>
 </head>
 <body>
@@ -267,7 +275,7 @@ $conn->close();
         <div class="buttons">
             <a href="logout.php" class="btn">Logout</a>
             <div class="btn-home" onclick="redirectHome()">Home</div>
-            <a href="appointments.php" class="btn-appointments">Mis Citas</a>
+            <div class="btn-appointments" onclick="redirectAppointments()">Mis Citas</div>
         </div>
     </div>
 </body>
