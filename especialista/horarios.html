@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Horarios</title>
+    <style>
+        /* Estilos básicos */
+    </style>
+</head>
+<body>
+    <h2>Crear Horarios</h2>
+    <form method="POST" action="crear_horario.php">
+        <label for="dia_semana">Día de la Semana:</label>
+        <select name="dia_semana" required>
+            <option value="Lunes">Lunes</option>
+            <option value="Martes">Martes</option>
+            <option value="Miércoles">Miércoles</option>
+            <option value="Jueves">Jueves</option>
+            <option value="Viernes">Viernes</option>
+            <option value="Sábado">Sábado</option>
+            <option value="Domingo">Domingo</option>
+        </select>
+        <label for="hora_inicio">Hora de Inicio:</label>
+        <input type="time" name="hora_inicio" required>
+        <label for="hora_fin">Hora de Fin:</label>
+        <input type="time" name="hora_fin" required>
+        <input type="submit" value="Crear Horario">
+    </form>
+</body>
+</html>
