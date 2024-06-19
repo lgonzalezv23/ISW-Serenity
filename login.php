@@ -25,6 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $row['password'])) {
             $_SESSION['username'] = $username;
             $_SESSION['tipo'] = $row['tipo'];
+            $_SESSION['user_id'] = $row['id']; // Almacenar user_id en la sesión
+
             if ($row['tipo'] == 'usuario') {
                 header("Location: user_dashboard.html");
             } else if ($row['tipo'] == 'especialista') {
