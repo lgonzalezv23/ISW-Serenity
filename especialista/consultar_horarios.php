@@ -72,6 +72,7 @@ $conn->close();
     </style>
 </head>
 <body>
+<a href="../esp_dashboard.html">Serenity</a>
     <h2>Mis Horarios</h2>
     <?php if (!empty($horarios)): ?>
         <?php foreach ($horarios as $dia => $dia_horarios): ?>

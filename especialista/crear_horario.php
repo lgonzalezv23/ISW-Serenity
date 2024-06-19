@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'config.php';
+include '../config.php';
 
 if (!isset($_SESSION['username']) || $_SESSION['tipo'] != 'especialista') {
     header("Location: login.php");
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt->execute()) {
             // Redireccionar para recargar la página
-            header("Location: crear_horario.php");
+            header("Location: horarios.html");
             exit();
         } else {
             echo "Error: " . $stmt->error;
