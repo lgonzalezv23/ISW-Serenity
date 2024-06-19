@@ -14,6 +14,7 @@
             height: 100vh;
             margin: 0;
         }
+
         .container {
             background: white;
             border-radius: 10px;
@@ -21,6 +22,7 @@
             width: 400px;
             padding: 20px;
         }
+
         .title {
             font-size: 24px;
             font-weight: 700;
@@ -28,14 +30,17 @@
             text-align: center;
             margin-bottom: 20px;
         }
+
         form {
             display: flex;
             flex-direction: column;
         }
+
         label {
             margin-bottom: 10px;
             color: #333;
         }
+
         input[type="number"] {
             margin-bottom: 20px;
             padding: 10px;
@@ -44,6 +49,7 @@
             font-size: 16px;
             width: 100%;
         }
+
         input[type="submit"] {
             background: #6495ED;
             color: white;
@@ -54,6 +60,7 @@
             font-size: 16px;
             transition: background 0.3s;
         }
+
         input[type="submit"]:hover {
             background: #4169E1;
         }
@@ -62,18 +69,18 @@
 <body>
     <div class="container">
         <div class="title">Formulario de Seguimiento</div>
-        <form method="POST" action="guardar_seguimiento.php">
-            <label for="estado_animo">Estado de Ánimo (1-5):</label>
+        <form method="POST" action="guardar_seg.php">
+            <label for="estado_animo">¿Cuál crees que fue tu estado de ánimo hoy? (1-5):</label>
             <input type="number" id="estado_animo" name="estado_animo" min="1" max="5" required>
-            <label for="calidad_sueno">Calidad del Sueño (1-5):</label>
+            <label for="calidad_sueno">¿Cómo calificas la calidad de tu sueño? (1-5):</label>
             <input type="number" id="calidad_sueno" name="calidad_sueno" min="1" max="5" required>
-            <label for="nivel_estres">Nivel de Estrés (1-5):</label>
+            <label for="nivel_estres">¿Cuál crees que fue tu nivel de estrés hoy? (1-5):</label>
             <input type="number" id="nivel_estres" name="nivel_estres" min="1" max="5" required>
-            <label for="nivel_energia">Nivel de Energía (1-5):</label>
+            <label for="nivel_energia">¿Cómo calificas tu nivel de energía hoy? (1-5):</label>
             <input type="number" id="nivel_energia" name="nivel_energia" min="1" max="5" required>
-            <label for="ansiedad_depresion">Ansiedad/Depresión (1-5):</label>
+            <label for="ansiedad_depresion">¿Cómo te sentiste en términos de ansiedad o depresión hoy? (1-5):</label>
             <input type="number" id="ansiedad_depresion" name="ansiedad_depresion" min="1" max="5" required>
-            <label for="concentracion">Capacidad de Concentración (1-5):</label>
+            <label for="concentracion">¿Cómo calificas tu capacidad de concentración hoy? (1-5):</label>
             <input type="number" id="concentracion" name="concentracion" min="1" max="5" required>
             <input type="submit" value="Enviar">
         </form>
