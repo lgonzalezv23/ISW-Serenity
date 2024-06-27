@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Profile Cards | CodingLab</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        ::selection {
+            background: #87CEFA;
+            color: #fff;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        html, body {
+            display: grid;
+            height: 100%;
+            place-items: center;
+            background: #87CEFA;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .header a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 1100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            padding: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .container .box {
+            width: calc(33% - 20px);
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            min-height: 400px;
+        }
+        .container .box:hover {
+            transform: scale(1.05);
+        }
+        .container .box .image {
+            margin: 10px 0;
+            height: 150px;
+            width: 150px;
+            background: #87CEFA;
+            padding: 3px;
+            border-radius: 50%;
+        }
+        .box .image img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+        }
+        .box p {
+            text-align: justify;
+            margin-top: 8px;
+            font-size: 16px;
+            font-weight: 400;
+            flex-grow: 1;
+        }
+        .box .name_job {
+            margin: 10px 0 3px 0;
+            color: #87CEFA;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .rating i {
+            font-size: 18px;
+            color: #87CEFA;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        .rating i.active {
+            color: #87CEFA;
+        }
+        .btns {
+            margin-top: 20px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .btns button {
+            background: #87CEFA;
+            width: 100%;
+            padding: 9px 0;
+            outline: none;
+            border: 2px solid #87CEFA;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 400;
+            color: #87CEFA;
+            transition: all 0.3s linear;
+        }
+        .btns button:first-child {
+            background: none;
+            margin-right: 5px;
+        }
+        .btns button:last-child {
+            color: #fff;
+            margin-left: 5px;
+        }
+        .btns button:first-child:hover {
+            background: #87CEFA;
+            color: #fff;
+        }
+        .btns button:hover {
+            color: #fff;
+        }
+        @media (max-width: 1045px) {
+            .container .box {
+                width: calc(50% - 10px);
+                margin-bottom: 20px;
+            }
+        }
+        @media (max-width: 710px) {
+            .container .box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="init_dashboard.html">SERENITY</a>
+    </div>
+    <div class="container">
+        <div class="box">
+            <div class="image">
+                <img src="images/img1.jpg" alt="Profile Image 1">
+            </div>
+            <div class="name_job">Luis Gonzalez</div>
+            <div class="rating">
+                <i class="far fa-star" data-index="0"></i>
+                <i class="far fa-star" data-index="1"></i>
+                <i class="far fa-star" data-index="2"></i>
+                <i class="far fa-star" data-index="3"></i>
+                <i class="far fa-star" data-index="4"></i>
+            </div>
+            <p>Estudiante de la ESCOM del IPN, apasionado por la tecnología y el desarrollo web.</p>
+            <div class="btns">
+                <button>Read More</button>
+                <button>Subscribe</button>
+            </div>
+        </div>
+        <div class="box">
+            <div class="image">
+                <img src="images/img2.jpg" alt="Profile Image 2">
+            </div>
+            <div class="name_job">Kimberly Pineda</div>
+            <div class="rating">
+                <i class="far fa-star" data-index="0"></i>
+                <i class="far fa-star" data-index="1"></i>
+                <i class="far fa-star" data-index="2"></i>
+                <i class="far fa-star" data-index="3"></i>
+                <i class="far fa-star" data-index="4"></i>
+            </div>
+            <p>Estudiante de la ESCOM del IPN, interesada en la inteligencia artificial y el machine learning.</p>
+            <div class="btns">
+                <button>Read More</button>
+                <button>Subscribe</button>
+            </div>
+        </div>
+        <div class="box">
+            <div class="image">
+                <img src="images/img3.jpg" alt="Profile Image 3">
+            </div>
+            <div class="name_job">Luis Albavera</div>
+            <div class="rating">
+                <i class="far fa-star" data-index="0"></i>
+                <i class="far fa-star" data-index="1"></i>
+                <i class="far fa-star" data-index="2"></i>
+                <i class="far fa-star" data-index="3"></i>
+                <i class="far fa-star" data-index="4"></i>
+            </div>
+            <p>Estudiante de la ESCOM del IPN, enfocado en el desarrollo de software y soluciones innovadoras.</p>
+            <div class="btns">
+                <button>Read More</button>
+                <button>Subscribe</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.rating').forEach(rating => {
+            rating.addEventListener('click', (e) => {
+                if (e.target.classList.contains('fa-star')) {
+                    const stars = rating.querySelectorAll('.fa-star');
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    stars.forEach((star, i) => {
+                        if (i <= index) {
+                            star.classList.remove('far');
+                            star.classList.add('fas');
+                            star.classList.add('active');
+                        } else {
+                            star.classList.remove('fas');
+                            star.classList.add('far');
+                            star.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
