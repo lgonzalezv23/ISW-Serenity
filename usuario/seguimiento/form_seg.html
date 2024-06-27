@@ -5,29 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Seguimiento</title>
     <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background: #87CEFA;
+            background: #f0f2f5;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #4a90e2;
+        }
+
+        .header a {
+            color: #4a90e2;
+            text-decoration: none;
         }
 
         .container {
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             width: 400px;
-            padding: 20px;
+            padding: 30px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .title {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 700;
-            color: #87CEFA;
-            text-align: center;
+            color: #4a90e2;
             margin-bottom: 20px;
         }
 
@@ -39,11 +66,12 @@
         label {
             margin-bottom: 10px;
             color: #333;
+            text-align: left;
         }
 
         input[type="number"] {
             margin-bottom: 20px;
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 16px;
@@ -51,10 +79,10 @@
         }
 
         input[type="submit"] {
-            background: #6495ED;
+            background: #4a90e2;
             color: white;
             border: none;
-            padding: 10px;
+            padding: 12px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
@@ -67,6 +95,9 @@
     </style>
 </head>
 <body>
+    <div class="header">
+        <a href="../../user_dashboard.html">SERENITY</a>
+    </div>
     <div class="container">
         <div class="title">Formulario de Seguimiento</div>
         <form method="POST" action="guardar_seg.php">
