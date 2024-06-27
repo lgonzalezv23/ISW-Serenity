@@ -34,5 +34,69 @@ y guardar ahi el repositorio
 
 para abrir
 
-http://localhost/ISW-Serenity/register.php
+http://localhost/ISW-Serenity/init_dashboard.html
+
+Tablas Necesarias:
+
+CREATE TABLE especialistas (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    apellidos VARCHAR(255) NOT NULL,
+    fecha_nacimiento DATE,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    tipo ENUM('usuario', 'especialista') NOT NULL,
+    cedula VARCHAR(255)
+);
+
+CREATE TABLE users (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    apellidos VARCHAR(255) NOT NULL,
+    fecha_nacimiento DATE,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    tipo ENUM('usuario', 'especialista') NOT NULL
+);
+
+CREATE TABLE seguimientos (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT(11) NOT NULL,
+    fecha DATE,
+    estado_animo INT(11),
+    calidad_sueno INT(11),
+    nivel_estres INT(11),
+    nivel_energia INT(11),
+    ansiedad_depresion INT(11),
+    concentracion INT(11),
+    FOREIGN KEY (usuario_id) REFERENCES users(id)
+);
+
+CREATE TABLE citas (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT(11) NOT NULL,
+    horario_id INT(11) NOT NULL,
+    fecha DATE,
+    descripcion TEXT,
+    FOREIGN KEY (usuario_id) REFERENCES users(id),
+    FOREIGN KEY (horario_id) REFERENCES horarios(id)
+);
+
+CREATE TABLE horarios (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    especialista_id INT(11) NOT NULL,
+    dia_semana ENUM('Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'),
+    hora_inicio TIME,
+    hora_fin TIME,
+    agendada TINYINT(1),
+    FOREIGN KEY (especialista_id) REFERENCES especialistas(id)
+);
+
+CREATE TABLE contacto_especialista (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    especialista_id INT(11) NOT NULL,
+    correo VARCHAR(255),
+    telefono VARCHAR(20),
+    FOREIGN KEY (especialista_id) REFERENCES especialistas(id)
+);
 
