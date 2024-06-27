@@ -1,42 +1,29 @@
 #This page is for Read-Only purposes
 
-#git config user.email "luisenano2322@gmail.com"
-#git config user.name "lgonzalezv23"
+Configuración de Git
 
-#git clone https://github.com/lgonzalezv23/ISW-Serenity
+En la consola de VS, configura tu usuario de Git con los siguientes comandos:
 
-#This line was added for testing purposes
+git config user.email "tu correo de GitHub"
+git config user.name "tu usuario de GitHub"
+------
 
+Clona el repositorio:
 
-#instrucciones
-instalar XAMPP
-- levantar apache
-- levantar MySQL
+git clone https://github.com/lgonzalezv23/ISW-Serenity
+------
 
+Donaciones: Si deseas hacer una donación, por favor envía un correo a edsilent9@gmail.com.
+
+-------
+Instrucciones para Configurar el Entorno
+- Instalar XAMPP.
+- Iniciar Apache y MySQL desde el panel de control de XAMPP.
+- (Opcional) Si tu phpMyAdmin está en un puerto diferente, como el 3307, asegúrate de modificar la configuración según tu caso.
 - Abre phpMyAdmin desde el panel de control de XAMPP.
 - Crea una nueva base de datos llamada mental_health_app.
+- Crea las siguientes tablas en la base de datos mental_health_app:
 
-Dentro de esta base de datos, crea una tabla users con las siguientes columnas:
-
-CREATE TABLE users (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  username VARCHAR(50) NOT NULL UNIQUE,
-  password VARCHAR(255) NOT NULL
-);
-
-en un vscode clonar un repositorio
-y meter esta url:
-
-https://github.com/lgonzalezv23/ISW-Serenity
-
-en la carpeta del xampp buscar la carpeta htdocs
-y guardar ahi el repositorio
-
-para abrir
-
-http://localhost/ISW-Serenity/init_dashboard.html
-
-Tablas Necesarias:
 
 CREATE TABLE especialistas (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
@@ -99,4 +86,20 @@ CREATE TABLE contacto_especialista (
     telefono VARCHAR(20),
     FOREIGN KEY (especialista_id) REFERENCES especialistas(id)
 );
+
+-----------------
+Clonar el Repositorio en VS Code
+- En Visual Studio Code, abre la terminal y ejecuta el siguiente comando para clonar el repositorio:
+
+git clone https://github.com/lgonzalezv23/ISW-Serenity
+
+- Navega a la carpeta htdocs en la instalación de XAMPP.
+- Guarda el repositorio clonado en la carpeta htdocs.
+
+---------------
+Abrir la Página Web
+Para abrir la página, utiliza la siguiente URL en tu navegador:
+
+http://localhost/ISW-Serenity/init_dashboard.html
+
 
