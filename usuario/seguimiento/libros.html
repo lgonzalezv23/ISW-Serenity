@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros Recomendados</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #4a90e2;
+        }
+
+        .header a {
+            color: #4a90e2;
+            text-decoration: none;
+        }
+
+        .accordion {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            padding: 15px;
+            cursor: pointer;
+            background: #e9f2fc;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 15px;
+        }
+
+        .accordion-content a {
+            color: #4a90e2;
+            text-decoration: none;
+        }
+
+        .accordion-content a:hover {
+            text-decoration: underline;
+        }
+
+        .accordion-content p {
+            margin: 10px 0;
+        }
+
+        .active .accordion-content {
+            display: block;
+        }
+
+        .active .accordion-title {
+            background: #4a90e2;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="../../user_dashboard.html">SERENITY</a>
+    </div>
+    <div class="accordion">
+        <div class="accordion-item">
+            <div class="accordion-title">Estrés</div>
+            <div class="accordion-content">
+                <p><a href="https://www.amazon.com/dp/1572245492" target="_blank">"The Relaxation and Stress Reduction Workbook" de Martha Davis</a></p>
+                <p><a href="https://www.amazon.com/dp/0357361951" target="_blank">"Stress Management for Life" de Michael Olpin y Margie Hesson</a></p>
+                <p><a href="https://www.amazon.com/dp/0805073698" target="_blank">"Why Zebras Don't Get Ulcers" de Robert M. Sapolsky</a></p>
+                <p><a href="https://www.amazon.com/dp/0345536932" target="_blank">"Full Catastrophe Living" de Jon Kabat-Zinn</a></p>
+                <p><a href="https://www.amazon.com/dp/1101982934" target="_blank">"The Upside of Stress" de Kelly McGonigal</a></p>
+                <p><a href="https://www.amazon.com/dp/1582704910" target="_blank">"The End of Stress" de Don Joseph Goewey</a></p>
+                <p><a href="https://www.amazon.com/dp/1284126264" target="_blank">"Managing Stress" de Brian Luke Seaward</a></p>
+                <p><a href="https://www.amazon.com/dp/0143130477" target="_blank">"Stress Proof" de Mithu Storoni</a></p>
+                <p><a href="https://www.amazon.com/dp/198481706X" target="_blank">"Burnout: The Secret to Unlocking the Stress Cycle" de Emily Nagoski y Amelia Nagoski</a></p>
+                <p><a href="https://www.amazon.com/dp/0062915897" target="_blank">"The Stress Solution" de Rangan Chatterjee</a></p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-title">Ansiedad</div>
+            <div class="accordion-content">
+                <p><a href="https://www.amazon.com/dp/1684034833" target="_blank">"The Anxiety and Phobia Workbook" de Edmund J. Bourne</a></p>
+                <p><a href="https://www.amazon.com/dp/0956596258" target="_blank">"Dare: The New Way to End Anxiety and Stop Panic Attacks" de Barry McDonagh</a></p>
+                <p><a href="https://www.amazon.com/dp/0399169258" target="_blank">"The Anxiety Toolkit" de Alice Boyes</a></p>
+                <p><a href="https://www.amazon.com/dp/1626251134" target="_blank">"Rewire Your Anxious Brain" de Catherine M. Pittman y Elizabeth M. Karle</a></p>
+                <p><a href="https://www.amazon.com/dp/0307390608" target="_blank">"My Age of Anxiety" de Scott Stossel</a></p>
+                <p><a href="https://www.amazon.com/dp/1626253188" target="_blank">"The Worry Trick" de David A. Carbonell</a></p>
+                <p><a href="https://www.amazon.com/dp/0718187137" target="_blank">"The Anxiety Solution" de Chloe Brotheridge</a></p>
+                <p><a href="https://www.amazon.com/dp/076792083X" target="_blank">"When Panic Attacks" de David D. Burns</a></p>
+                <p><a href="https://www.amazon.com/dp/0956948103" target="_blank">"At Last a Life" de Paul David</a></p>
+                <p><a href="https://www.amazon.com/dp/0062836788" target="_blank">"First, We Make the Beast Beautiful" de Sarah Wilson</a></p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-title">Depresión</div>
+            <div class="accordion-content">
+                <p><a href="https://www.amazon.com/dp/0380810336" target="_blank">"Feeling Good: The New Mood Therapy" de David D. Burns</a></p>
+                <p><a href="https://www.amazon.com/dp/0684854678" target="_blank">"The Noonday Demon: An Atlas of Depression" de Andrew Solomon</a></p>
+                <p><a href="https://www.amazon.com/dp/163286830X" target="_blank">"Lost Connections" de Johann Hari</a></p>
+                <p><a href="https://www.amazon.com/dp/0738213888" target="_blank">"The Depression Cure" de Stephen S. Ilardi</a></p>
+                <p><a href="https://www.amazon.com/dp/0316043419" target="_blank">"Undoing Depression" de Richard O'Connor</a></p>
+                <p><a href="https://www.amazon.com/dp/1593851286" target="_blank">"The Mindful Way through Depression" de Mark Williams, John Teasdale, Zindel Segal, y Jon Kabat-Zinn</a></p>
+                <p><a href="https://www.amazon.com/dp/0679736395" target="_blank">"Darkness Visible: A Memoir of Madness" de William Styron</a></p>
+                <p><a href="https://www.amazon.com/dp/0143036963" target="_blank">"Against Depression" de Peter D. Kramer</a></p>
+                <p><a href="https://www.amazon.com/dp/1782115080" target="_blank">"Reasons to Stay Alive" de Matt Haig</a></p>
+                <p><a href="https://www.amazon.com/dp/1626251207" target="_blank">"The Upward Spiral" de Alex Korb</a></p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-title">Autoayuda</div>
+            <div class="accordion-content">
+                <p><a href="https://www.amazon.com/dp/1577314808" target="_blank">"The Power of Now" de Eckhart Tolle</a></p>
+                <p><a href="https://www.amazon.com/dp/0735211299" target="_blank">"Atomic Habits" de James Clear</a></p>
+                <p><a href="https://www.amazon.com/dp/1982137274" target="_blank">"The 7 Habits of Highly Effective People" de Stephen R. Covey</a></p>
+                <p><a href="https://www.amazon.com/dp/0762447699" target="_blank">"You Are a Badass" de Jen Sincero</a></p>
+                <p><a href="https://www.amazon.com/dp/0671027034" target="_blank">"How to Win Friends and Influence People" de Dale Carnegie</a></p>
+                <p><a href="https://www.amazon.com/dp/0062457713" target="_blank">"The Subtle Art of Not Giving a F*ck" de Mark Manson</a></p>
+                <p><a href="https://www.amazon.com/dp/080701429X" target="_blank">"Man's Search for Meaning" de Viktor E. Frankl</a></p>
+                <p><a href="https://www.amazon.com/dp/193787950X" target="_blank">"Think and Grow Rich" de Napoleon Hill</a></p>
+                <p><a href="https://www.amazon.com/dp/1878424319" target="_blank">"The Four Agreements" de Don Miguel Ruiz</a></p>
+                <p><a href="https://www.amazon.com/dp/0671791540" target="_blank">"Awaken the Giant Within" de Tony Robbins</a></p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-title">Técnicas de Relajación</div>
+            <div class="accordion-content">
+                <p><a href="https://www.amazon.com/dp/0380815958" target="_blank">"The Relaxation Response" de Herbert Benson</a></p>
+                <p><a href="https://www.amazon.com/dp/1567180433" target="_blank">"Meditation for Relaxation" de Suzanne Crocker</a></p>
+                <p><a href="https://www.amazon.com/dp/1451678670" target="_blank">"Relaxation Revolution" de Herbert Benson y William Proctor</a></p>
+                <p><a href="https://www.amazon.com/dp/1930485298" target="_blank">"Relax and Renew" de Judith Hanson Lasater</a></p>
+                <p><a href="https://www.amazon.com/dp/1608829731" target="_blank">"A Practical Guide to Mindfulness-Based Stress Reduction" de Bob Stahl y Elisha Goldstein</a></p>
+                <p><a href="https://www.amazon.com/dp/0140285261" target="_blank">"The Little Book of Calm" de Paul Wilson</a></p>
+                <p><a href="https://www.amazon.com/dp/1626253648" target="_blank">"Relax into Yoga for Seniors" de Kimberly Carson y Carol Krucoff</a></p>
+                <p><a href="https://www.amazon.com/dp/0241309016" target="_blank">"Calm: Calm the Mind. Change the World" de Michael Acton Smith</a></p>
+                <p><a href="https://www.amazon.com/dp/1572247037" target="_blank">"Deep Relaxation" de Michael Bohne</a></p>
+                <p><a href="https://www.amazon.com/dp/1742706083" target="_blank">"Relaxation: Exercises and Inspirations for Well-being" de Steve Tyler</a></p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-title">Cuidado del Sueño</div>
+            <div class="accordion-content">
+                <p><a href="https://www.amazon.com/dp/1501144316" target="_blank">"Why We Sleep" de Matthew Walker</a></p>
+                <p><a href="https://www.amazon.com/dp/0399583629" target="_blank">"The Sleep Solution" de W. Chris Winter</a></p>
+                <p><a href="https://www.amazon.com/dp/0805089586" target="_blank">"Say Good Night to Insomnia" de Gregg D. Jacobs</a></p>
+                <p><a href="https://www.amazon.com/dp/1623367395" target="_blank">"Sleep Smarter" de Shawn Stevenson</a></p>
+                <p><a href="https://www.amazon.com/dp/110190402X" target="_blank">"The Sleep Revolution" de Arianna Huffington</a></p>
+                <p><a href="https://www.amazon.com/dp/0956702475" target="_blank">"The Effortless Sleep Method" de Sasha Stephens</a></p>
+                <p><a href="https://www.amazon.com/dp/0805089586" target="_blank">"Say Goodnight to Insomnia" de Gregg D. Jacobs</a></p>
+                <p><a href="https://www.amazon.com/dp/163565243X" target="_blank">"The Circadian Code" de Satchin Panda</a></p>
+                <p><a href="https://www.amazon.com/dp/1465483913" target="_blank">"Sleep: Harness the Power of Sleep for Optimal Health and Well-Being" de Petra Hawker</a></p>
+                <p><a href="https://www.amazon.com/dp/1579659578" target="_blank">"How to Sleep: The New Science-Based Solutions for Sleeping Through the Night" de Rafael Pelayo</a></p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-title">Ejercicios de Respiración</div>
+            <div class="accordion-content">
+                <p><a href="https://www.amazon.com/dp/1590309022" target="_blank">"The Healing Power of the Breath" de Richard P. Brown y Patricia L. Gerbarg</a></p>
+                <p><a href="https://www.amazon.com/dp/1250106427" target="_blank">"Breathe: The Simple, Revolutionary 14-Day Program to Improve Your Mental and Physical Health" de Belisa Vranich</a></p>
+                <p><a href="https://www.amazon.com/dp/0735213615" target="_blank">"Breath: The New Science of a Lost Art" de James Nestor</a></p>
+                <p><a href="https://www.amazon.com/dp/0062349473" target="_blank">"The Oxygen Advantage" de Patrick McKeown</a></p>
+                <p><a href="https://www.amazon.com/dp/9198587223" target="_blank">"The Power of Your Breath" de Anders Olsson</a></p>
+                <p><a href="https://www.amazon.com/dp/1250308224" target="_blank">"Breathing for Warriors" de Belisa Vranich y Brian Sabin</a></p>
+                <p><a href="https://www.amazon.com/dp/1736166103" target="_blank">"A Practical Guide to Breathwork" de Jesse Coomer</a></p>
+                <p><a href="https://www.amazon.com/dp/1515063412" target="_blank">"Conscious Breathing" de Anders Olsson</a></p>
+                <p><a href="https://www.amazon.com/dp/0805042970" target="_blank">"The Breathing Book" de Donna Farhi</a></p>
+                <p><a href="https://www.amazon.com/dp/1465475376" target="_blank">"Breathwork: How to Use Your Breath to Change Your Life" de Nathalia Westmacott-Brown</a></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.accordion-title').forEach(title => {
+            title.addEventListener('click', () => {
+                const activeItem = document.querySelector('.accordion-item.active');
+                if (activeItem && activeItem !== title.parentElement) {
+                    activeItem.classList.remove('active');
+                }
+                title.parentElement.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
