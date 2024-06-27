@@ -63,6 +63,17 @@ for ($i = 0; $i < $total_seguimientos; $i++) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Análisis de Progreso</title>
     <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             background: #f0f2f5;
@@ -72,6 +83,7 @@ for ($i = 0; $i < $total_seguimientos; $i++) {
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .header {
